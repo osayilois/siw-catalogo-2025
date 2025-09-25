@@ -42,4 +42,10 @@ public class HomeController {
 
   @GetMapping("/register")
   public String registerForm() { return "register"; }
+
+  @GetMapping("/account")
+public String accountRedirect() {
+  return "redirect:/profile/reviews";
+}
+
 }

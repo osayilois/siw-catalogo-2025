@@ -316,3 +316,130 @@
         margin-bottom: 0;
     }
 }
+
+/* ===== PRODUCT PAGE LAYOUT SAFE ===== */
+.product-page .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+    gap: 32px;
+    align-items: start;
+}
+
+/* i pannelli NON devono “sanguinare” fuori dalla colonna */
+.product-page .panel,
+.product-page .card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    /* annulla eventuali margini negativi */
+}
+
+/* annulla eventuali classi ereditate tipo impact/full-bleed */
+.product-page .panel.impact,
+.product-page .panel.full-bleed,
+.product-page .panel[class*="bleed"] {
+    width: 100% !important;
+    left: auto !important;
+    transform: none !important;
+}
+
+/* Se per qualche motivo qualcosa si sovrappone ancora, 
+   metti l’immagine sopra al pannello */
+.product-page .media {
+    position: relative;
+    z-index: 2;
+}
+
+.product-page .panel {
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* per sicurezza: evita che contenuti troppo larghi rompano la colonna */
+.product-page .panel,
+.product-page .card,
+.product-page .media {
+    min-width: 0;
+}
+
+.stars {
+    font-size: 1.05rem;
+    color: #b5895a;
+    letter-spacing: 2px;
+    user-select: none;
+}
+
+.stars span {
+    display: inline-block;
+    line-height: 1;
+}
+
+/* stelle statiche in visualizzazione */
+.stars {
+    font-size: 1.05rem;
+    color: #b5895a;
+    letter-spacing: 2px;
+    user-select: none
+}
+
+.stars span {
+    display: inline-block;
+    line-height: 1
+}
+
+/* pannelli aperti/chiusi con :target */
+.panel {
+    display: none;
+    margin-top: .75rem
+}
+
+.panel:target {
+    display: block
+}
+
+/* rating puro CSS (niente JS) */
+.rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    /* per riempire da sinistra a destra usando ~ */
+    gap: .25rem;
+}
+
+.rating input {
+    display: none
+}
+
+.rating label {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #d0d0d0;
+    line-height: 1;
+}
+
+.rating label::before {
+    content: '★';
+}
+
+/* evidenziazione: selezionato e “precedenti” */
+.rating input:checked~label {
+    color: #b5895a;
+}
+
+/* feedback hover (facoltativo, sempre CSS) */
+.rating label:hover,
+.rating label:hover~label {
+    color: #b5895a;
+}
+
+/* riquadro conferma delete */
+.confirm-box {
+    padding: .75rem 1rem;
+    border: 1px solid #eee;
+    border-radius: .5rem;
+    background: #fff7f7;
+}

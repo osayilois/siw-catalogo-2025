@@ -107,3 +107,66 @@ body.bg-theme {
 }
 
 /* rosso accessibile su chiaro */
+
+
+/* stelle statiche */
+.stars {
+    font-size: 1.1rem;
+    color: #b5895a;
+    letter-spacing: 2px;
+    user-select: none
+}
+
+.stars .bi {
+    margin-right: 2px;
+}
+
+/* rating editabile con Bootstrap Icons, solo CSS */
+.bi-stars {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    /* trucco per far “riempire” da sinistra */
+    gap: .25rem;
+}
+
+.bi-stars input {
+    display: none;
+}
+
+.bi-stars label {
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+    user-select: none;
+}
+
+/* stato base: contorno visibile, pieno nascosto */
+.bi-stars label .bi-star {
+    color: #d0d0d0;
+    display: inline-block;
+}
+
+.bi-stars label .bi-star-fill {
+    color: #b5895a;
+    display: none;
+}
+
+/* selezione: mostra le stelline piene dalla scelta in giù */
+.bi-stars input:checked~label .bi-star {
+    display: none;
+}
+
+.bi-stars input:checked~label .bi-star-fill {
+    display: inline-block;
+}
+
+/* feedback hover (opzionale ma carino), sempre solo CSS */
+.bi-stars label:hover .bi-star,
+.bi-stars label:hover~label .bi-star {
+    display: none;
+}
+
+.bi-stars label:hover .bi-star-fill,
+.bi-stars label:hover~label .bi-star-fill {
+    display: inline-block;
+}

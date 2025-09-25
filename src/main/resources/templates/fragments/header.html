@@ -17,7 +17,8 @@
 
             <!-- Utente autenticato NON admin -->
             <a class="btn btn-outline-brown" sec:authorize="isAuthenticated() and !hasRole('ADMIN')"
-                th:href="@{/account}">My account</a>
+                th:href="@{/profile/reviews}">My account</a>
+
 
             <!-- Logout (solo autenticati) -->
             <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" class="d-inline-block m-0"

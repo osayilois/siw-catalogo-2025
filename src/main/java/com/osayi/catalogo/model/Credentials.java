@@ -20,4 +20,12 @@ public class Credentials {
 
   public enum Role { USER, ADMIN }
 
+  @OneToOne
+@JoinColumn(name = "app_user_id")
+private AppUser appUser;
+
+// Getter/Setter usati dai controller via reflection
+public AppUser getAppUser() { return this.appUser; }
+public void setAppUser(AppUser u) { this.appUser = u; }
+
 }
