@@ -55,3 +55,85 @@ body {
     border-color: var(--brown-400);
     color: #fff;
 }
+
+.admin-search {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 12px 0 10px;
+}
+
+.admin-search input[type="search"] {
+    flex: 1;
+    min-width: 260px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+}
+
+.search-meta {
+    margin: 4px 0 10px;
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+/* variante “ghost” coerente col tuo tema */
+.btn-wl--ghost {
+    background: #fff;
+    border-color: var(--line);
+    color: var(--muted);
+}
+
+.btn-wl--ghost:hover {
+    filter: brightness(1.02);
+}
+
+/* ===== SEARCH sotto header (come home) ===== */
+.search-row {
+    margin: 10px auto 0;
+}
+
+.searchbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid var(--beige-300);
+    border-radius: 999px;
+    padding: 10px 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .04);
+}
+
+.searchbar i.bi {
+    color: #6b7280;
+    font-size: 1.05rem;
+}
+
+.searchbar input[type="search"] {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--ink);
+    width: 100%;
+}
+
+.searchbar__clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #6b7280;
+    border: 0;
+    background: transparent;
+}
+
+.searchbar__clear:hover {
+    background: #f3f4f6;
+}

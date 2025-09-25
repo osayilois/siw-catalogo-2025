@@ -44,7 +44,7 @@ public class ProductController {
     Product p = repo.findById(id)
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Prodotto inesistente"));
 
-    List<Product> simili = repo.findTop8ByCategoryAndIdNotOrderByIdDesc(p.getCategory(), p.getId());
+    List<Product> simili = repo.findTop4ByCategoryAndIdNotOrderByIdDesc(p.getCategory(), p.getId());
 
     Page<Review> revPage = reviews.findByProductIdOrderByCreatedAtDesc(id, PageRequest.of(page, size));
 

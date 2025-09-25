@@ -443,3 +443,25 @@
     border-radius: .5rem;
     background: #fff7f7;
 }
+
+/* forza la grid a una colonna e impedisce collassi */
+.pd-sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 16px;
+}
+
+/* ogni card è nel flusso, niente overlay */
+.pd-card {
+    position: relative;
+    float: none;
+    z-index: auto;
+}
+
+/* la sezione simili sta sempre sotto con respiro extra */
+.pd-simili {
+    margin-top: 8px;
+    clear: both;
+    /* fail-safe se qualcosa usasse float */
+}

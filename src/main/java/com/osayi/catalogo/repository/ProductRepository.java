@@ -17,7 +17,9 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
   List<Product> findByNameContainingIgnoreCaseOrderByIdDesc(String name);
 
   // ProductController.detail(): "simili" (stessa categoria, escludi quello aperto, ordina per id desc)
-  List<Product> findTop8ByCategoryAndIdNotOrderByIdDesc(String category, Long id);
-  // ⬇️ Se "category" è un'entità con campo "name", usa QUESTO al posto della riga sopra:
-  // List<Product> findTop8ByCategory_NameAndIdNotOrderByIdDesc(String categoryName, Long id);
+  List<Product> findTop4ByCategoryAndIdNotOrderByIdDesc(String category, Long id);
+
 }
+
+
+
