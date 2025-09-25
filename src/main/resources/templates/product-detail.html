@@ -1,0 +1,84 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <title th:text="${product.name}">Dettaglio prodotto</title>
+
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/product-detail.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="pd-page">
+
+    <div th:replace="~{fragments/header :: siteHeader}"></div>
+
+    <main class="pd pd--alt">
+        <!-- BACK top-right -->
+        <a class="pd-back" th:href="@{/products}">← Indietro</a>
+
+        <!-- HERO -->
+        <section class="pd-hero">
+            <!-- Colonna SX: info -->
+            <div class="pd-info">
+                <h1 class="pd-title" th:text="${product.name}">Nome prodotto</h1>
+                <div class="pd-price">
+                    <span th:text="${#numbers.formatDecimal(product.price,1,2)}">0,00</span> €
+                </div>
+
+                <div class="pd-actions" style="display:flex; gap:10px; margin-top:6px;">
+                    <!-- bottone “whitelabel” accentato -->
+                    <a class="btn-wl btn-wl--accent" th:href="@{|/reviews/new?productId=${product.id}|}">
+                        Recensisci prodotto
+                    </a>
+                    <!-- esempio di whitelabel neutro riutilizzabile -->
+                    <a class="btn-wl" th:href="@{/products}">Torna al catalogo</a>
+                </div>
+            </div>
+
+            <!-- Colonna DX: media -->
+            <aside class="pd-media">
+                <img class="pd-img"
+                    th:src="${#strings.isEmpty(product.imageUrl)} ? @{/img/placeholder.png} : ${product.imageUrl}"
+                    th:alt="${product.name}" onerror="this.onerror=null;this.src='/img/placeholder.png';">
+            </aside>
+        </section>
+
+        <!-- SEZIONI SOTTO -->
+        <section class="pd-sections">
+            <article class="pd-card">
+                <h2>Dettagli prodotto</h2>
+                <div class="pd-desc"
+                    th:utext="${#strings.isEmpty(product.description) ? 'Nessuna descrizione disponibile.' : product.description}">
+                    Testo descrizione…
+                </div>
+            </article>
+
+            <article class="pd-card">
+                <h2>Recensioni</h2>
+                <!-- placeholder: quando avremo Review, riempiremo questo blocco -->
+                <div class="pd-reviews" th:if="${reviews != null and !#lists.isEmpty(reviews)}">
+                    <div class="pd-review" th:each="r : ${reviews}">
+                        <span class="who" th:text="${r.authorName}">Mario</span>
+                        <span class="when" th:text="${#temporals.format(r.createdAt, 'dd/MM/yyyy')}">01/01/2025</span>
+                        <div class="txt" th:text="${r.text}">Ottimo prodotto!</div>
+                    </div>
+                </div>
+                <p th:if="${reviews == null or #lists.isEmpty(reviews)}">Ancora nessuna recensione.</p>
+            </article>
+        </section>
+
+        <!-- (facoltativo) sezione prodotti simili: puoi riusare il fragment del catalogo -->
+        <!-- <section class="pd-sections">
+      <article class="pd-card">
+        <h2>Prodotti simili</h2>
+        <div th:replace="~{catalog-cards :: productGrid(${simili})}"></div>
+      </article>
+    </section> -->
+    </main>
+</body>
+
+</html>

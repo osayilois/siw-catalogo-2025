@@ -1,0 +1,63 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <title>Accedi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/auth.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="auth-body">
+
+    <main class="auth auth--login">
+        <section class="auth-card">
+
+            <!-- SX: immagine -->
+            <figure class="auth-media">
+                <img th:src="@{/img/art1.jpg}" alt="Login">
+            </figure>
+
+            <!-- DX: form -->
+            <div class="auth-panel">
+                <div class="auth-topbar">
+                    <a class="auth-back" th:href="@{/}">← Indietro</a>
+                </div>
+
+                <div class="auth-brand">
+                    <img th:src="@{/img/logo/logo-cata.png}" alt="Logo" class="auth-logo">
+                </div>
+
+                <h1 class="auth-title">Accedi</h1>
+
+                <p th:if="${param.error}" class="auth-msg auth-msg--error">Credenziali non valide.</p>
+                <p th:if="${param.logout}" class="auth-msg auth-msg--ok">Sei uscito correttamente.</p>
+
+                <form th:action="@{/login}" method="post" class="auth-form">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                    <label class="auth-field">
+                        <span>Email</span>
+                        <input type="email" name="username" required autocomplete="username">
+                    </label>
+
+                    <label class="auth-field">
+                        <span>Password</span>
+                        <input type="password" name="password" required autocomplete="current-password">
+                    </label>
+
+                    <button type="submit" class="auth-btn">Accedi</button>
+
+                    <p class="auth-switch">
+                        Non hai un account?
+                        <a th:href="@{/register}">Registrati</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+:root {
+    --bg: #f5f6f8;
+    --panel: #fff;
+    --text: #111;
+    --muted: #6b7280;
+    --black: #111;
+    --gold: #c8a75a;
+    --beige: #E6D5B8;
+    --container: min(1180px, 92vw);
+    --radius: 22px;
+    --shadow: 0 12px 34px rgba(0, 0, 0, .10);
+    --gap: 20px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif
+}
+
+/* ===== SEARCH sotto header ===== */
+.search-row {
+    width: var(--container);
+    margin: 10px auto 0;
+}
+
+.searchbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    padding: 10px 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .04);
+}
+
+.searchbar i.bi {
+    color: #6b7280;
+    font-size: 1.05rem;
+}
+
+.searchbar input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.searchbar__clear {
+    border: 0;
+    background: transparent;
+    padding: 6px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.searchbar__clear:hover {
+    background: #f3f4f6;
+}
+
+/* ===== MAIN WRAPPER ===== */
+.home {
+    width: var(--container);
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* ===== HERO ===== */
+.hero {
+    margin: 18px 0 8px;
+    background: var(--beige);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: clamp(22px, 4vw, 36px);
+}
+
+.hero__title {
+    font-family: "Lora", serif;
+    font-weight: 800;
+    font-size: clamp(28px, 3.2vw, 44px);
+    margin: 0 0 6px;
+}
+
+.hero__subtitle {
+    margin: 0 0 12px;
+    color: #2b2b2b;
+    font-size: clamp(14px, 1.4vw, 18px);
+}
+
+.hero__actions {
+    display: flex;
+    justify-content: center;
+}
+
+/* bottoni */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer
+}
+
+.btn--pill {
+    padding: 12px 22px;
+    border-radius: 999px;
+    box-shadow: 0 2px 0 0 var(--gold)
+}
+
+.btn--dark {
+    background: var(--black);
+    color: #fff;
+    transition: filter .15s ease, transform .04s ease, box-shadow .2s ease
+}
+
+.btn--dark:hover {
+    filter: brightness(1.03);
+    box-shadow: 0 3px 0 0 var(--gold)
+}
+
+.btn--dark:active {
+    transform: translateY(1px)
+}
+
+/* ===== TITOLI SEZIONI ===== */
+.sec-title {
+    font-family: "Lora", serif;
+    font-size: clamp(20px, 2.1vw, 28px);
+    margin: 26px 2px 12px
+}
+
+/* ===== GRID CARDS (riusabile per catalogo e home) ===== */
+.cards {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* CARD prodotto (stile "catalogo") */
+.pcard {
+    background: var(--panel);
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    overflow: hidden;
+}
+
+.pcard__link {
+    display: block;
+    color: inherit;
+    text-decoration: none
+}
+
+.pcard__media {
+    margin: 0;
+    height: 220px;
+    background: #fff;
+    display: grid;
+    place-items: center
+}
+
+.pcard__media img {
+    max-width: 92%;
+    max-height: 92%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .06));
+}
+
+.pcard__body {
+    padding: 12px 14px 16px
+}
+
+.pcard__cat {
+    color: var(--muted);
+    font-size: .95rem;
+    margin: 0 0 2px
+}
+
+.pcard__title {
+    font-size: 1.05rem;
+    margin: 0 0 8px;
+    font-weight: 700
+}
+
+.pcard__price {
+    font-weight: 700;
+    color: #3b3630
+}
+
+/* Rimuove la X nativa del browser nel campo search */
+.searchbar input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.searchbar input[type="search"]::-webkit-search-decoration,
+.searchbar input[type="search"]::-webkit-search-results-button,
+.searchbar input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+/* Edge (legacy) */
+.searchbar input[type="search"]::-ms-clear,
+.searchbar input[type="search"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Firefox (per completezza) */
+.searchbar input[type="search"]::-moz-search-clear {
+    display: none;
+}

@@ -1,0 +1,275 @@
+/* ===========================
+   AUTH shared (login + register)
+   Tema: SIW (nero/oro)
+   =========================== */
+
+:root {
+    /* card */
+    --cardW: min(1000px, 96vw);
+    --cardH: 560px;
+    --radius: 24px;
+    --shadow: 0 12px 40px rgba(0, 0, 0, .10);
+
+    /* palette */
+    --bg: #f5f6f8;
+    --panel: #ffffff;
+    --text: #111111;
+    --muted: #6b7280;
+
+    /* tema SIW */
+    --gold: #c8a75a;
+    --black: #111111;
+    --beige: #E6D5B8;
+    /* <-- colore bottone */
+    --beige-hover: #dac7a6;
+    /* hover bottone */
+
+    /* input */
+    --input-bd: #e5e7eb;
+    --input-bd-focus: var(--black);
+
+    /* feedback */
+    --error: #b42318;
+    --ok: #1a7f37;
+
+    /* font */
+    --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    --font-title: "Lora", serif;
+    /* <-- titoli eleganti */
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body.auth-body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* wrapper */
+.auth {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+/* card split */
+.auth-card {
+    width: var(--cardW);
+    min-height: var(--cardH);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 50/50 */
+    background: var(--panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* colonna SX: immagine */
+.auth-media {
+    margin: 0;
+    position: relative;
+    background: #000;
+    /* fallback bordo scuro */
+}
+
+.auth-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* colonna DX: pannello form */
+.auth-panel {
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    /* back | brand | title | form */
+    gap: 8px;
+    padding: clamp(18px, 4vw, 36px);
+    background: var(--panel);
+}
+
+/* topbar con indietro */
+.auth-topbar {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 4px;
+}
+
+.auth-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: var(--black);
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    border-radius: 999px;
+    transition: background .15s ease, border-color .15s ease;
+}
+
+.auth-back:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+/* logo */
+.auth-brand {
+    display: grid;
+    place-items: center;
+}
+
+.auth-logo {
+    height: 54px;
+    width: auto;
+}
+
+/* titolo */
+.auth-title {
+    font-family: var(--font-title);
+    text-align: center;
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 700;
+    margin: 6px 0 10px;
+    letter-spacing: .2px;
+}
+
+
+/* messaggi */
+.auth-msg {
+    text-align: center;
+    font-size: .95rem;
+    margin: 6px 0 10px;
+}
+
+.auth-msg--error {
+    color: var(--error);
+}
+
+.auth-msg--ok {
+    color: var(--ok);
+}
+
+/* form */
+.auth-form {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+}
+
+.auth-field {
+    display: grid;
+    gap: 6px;
+}
+
+.auth-field>span {
+    font-size: .92rem;
+    color: var(--muted);
+}
+
+.auth-field input {
+    appearance: none;
+    width: 100%;
+    border: 1px solid var(--input-bd);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    outline: none;
+    background: #fff;
+    color: var(--text);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.auth-field input:focus {
+    border-color: var(--input-bd-focus);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .05);
+}
+
+/* bottone primario stile SIW (nero/oro) */
+.auth-btn {
+    font-family: var(--font-body);
+    /* font del tuo tema */
+    display: inline-block;
+    width: 100%;
+    border: 0;
+    border-radius: 16px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    background: var(--beige);
+    /* <-- beige */
+    color: var(--black);
+    /* testo scuro per contrasto */
+    cursor: pointer;
+    position: relative;
+    transition: transform .04s ease, box-shadow .2s ease, background .15s ease;
+    box-shadow: 0 2px 0 0 var(--gold), 0 12px 24px rgba(0, 0, 0, .08);
+}
+
+.auth-btn:hover {
+    background: var(--beige-hover);
+    box-shadow: 0 2px 0 0 var(--gold), 0 16px 28px rgba(0, 0, 0, .10);
+}
+
+.auth-btn:active {
+    transform: translateY(1px);
+}
+
+
+.auth-btn:hover {
+    box-shadow: 0 2px 0 0 var(--gold), 0 16px 28px rgba(0, 0, 0, .10);
+}
+
+.auth-btn:active {
+    transform: translateY(1px);
+}
+
+/* link sotto il bottone */
+.auth-switch {
+    text-align: center;
+    font-size: .95rem;
+    color: var(--muted);
+    margin: 8px 0 0;
+}
+
+.auth-switch a {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+/* Autofill Chrome fix (evita giallo acido) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: var(--text);
+}
+
+/* Responsive: sotto 880px impila */
+@media (max-width: 880px) {
+    .auth-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .auth-media {
+        height: 180px;
+    }
+
+    .auth-panel {
+        padding: 18px;
+    }
+}

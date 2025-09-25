@@ -1,0 +1,181 @@
+/* ===== Header compatto e orizzontale ===== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+}
+
+/* NIENTE Bootstrap necessario: forziamo il layout con CSS puro */
+.site-header .container {
+    display: flex;
+    /* affianca logo e azioni */
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    /* riduce l’altezza */
+}
+
+/* Logo piccolo */
+.brand-logo {
+    height: 10px;
+    /* <-- dim. logo */
+    width: auto;
+    display: block;
+}
+
+/* Barra azioni: Admin + Logout AFFIANCATI */
+.site-header .nav-gap {
+    display: flex;
+    /* li mette in riga */
+    align-items: center;
+    gap: 8px;
+    /* spazio orizzontale */
+}
+
+/* Il form del logout non deve andare a capo */
+.site-header .nav-gap form {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Bottoni tema beige/marrone (come prima) */
+:root {
+    --brown-400: #B08968;
+    --brown-500: #8C6A4A;
+}
+
+.btn {
+    border-radius: 10px;
+    font-family: "Quicksand", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.btn-brown {
+    background: var(--brown-400);
+    border: 1px solid var(--brown-500);
+    color: #fff;
+}
+
+.btn-brown:hover {
+    background: var(--brown-500);
+    border-color: var(--brown-500);
+    color: #fff;
+}
+
+.btn-outline-brown {
+    background: transparent;
+    border: 1px solid var(--brown-400);
+    color: var(--brown-500);
+}
+
+.btn-outline-brown:hover {
+    background: var(--brown-400);
+    border-color: var(--brown-400);
+    color: #fff;
+}
+
+/* --- FORZA Admin + Logout AFFIANCATI --- */
+.header-actions,
+.nav-gap {
+    /* copre sia 'header-actions' che 'nav-gap' */
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+}
+
+.header-actions>*,
+.nav-gap>* {
+    display: inline-flex !important;
+    /* <a> e <form> in linea */
+    align-items: center;
+}
+
+.header-actions form,
+.nav-gap form {
+    margin: 0 !important;
+}
+
+.header-actions .btn,
+.nav-gap .btn {
+    padding: 8px 14px;
+    /* più compatti */
+    line-height: 1.1;
+}
+
+/* Forza Admin / My account / Logout in riga */
+.header-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+}
+
+.header-actions form {
+    display: inline-block !important;
+    margin: 0 !important;
+}
+
+.header-actions .btn {
+    padding: 8px 14px;
+    line-height: 1.1;
+}
+
+/* Fix dimensione logo (prima veniva forzato a 10px) */
+.brand-logo {
+    height: 50px !important;
+    width: auto !important;
+}
+
+/* --- Bottoni header coerenti (non tondi) --- */
+.site-header .btn-brown,
+.site-header .btn-outline-brown {
+    border-radius: 8px;
+    /* non tondi */
+    padding: 8px 14px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.site-header .btn-brown {
+    background: #b68662;
+    border: 1px solid #b68662;
+    color: #fff;
+}
+
+.site-header .btn-brown:hover {
+    filter: brightness(1.03);
+}
+
+.site-header .btn-outline-brown {
+    background: transparent;
+    color: #b68662;
+    border: 1px solid #b68662;
+}
+
+.site-header .btn-outline-brown:hover {
+    background: #f4ebe4;
+}
+
+/* (facoltativo) spazio tra Admin/Login/Logout */
+.site-header nav a,
+.site-header nav form {
+    margin-left: 8px;
+}
+
+/* niente underline nei link del header */
+.site-header nav a {
+    text-decoration: none !important;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus {
+    text-decoration: none !important;
+    filter: brightness(1.03);
+}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+:root {
+    --beige-50: #FBF7F2;
+    --beige-100: #F6EFE7;
+    --beige-300: #E7DACE;
+    --brown-400: #B08968;
+    --brown-500: #8C6A4A;
+    --ink: #2B2B2B;
+}
+
+body {
+    background: var(--beige-50);
+    color: var(--ink);
+    font-family: "Quicksand", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.table thead th {
+    font-weight: 600;
+    border-bottom-width: 2px;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: rgb(246 239 231 / .28);
+}
+
+.thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--beige-100);
+}
+
+/* bottoni tema (riusa le classi di header.css) */
+.btn-brown {
+    background: var(--brown-400);
+    border: 1px solid var(--brown-500);
+    color: #fff;
+}
+
+.btn-brown:hover {
+    background: var(--brown-500);
+    border-color: var(--brown-500);
+    color: #fff;
+}
+
+.btn-outline-brown {
+    border: 1px solid var(--brown-400);
+    color: var(--brown-500);
+}
+
+.btn-outline-brown:hover {
+    background: var(--brown-400);
+    border-color: var(--brown-400);
+    color: #fff;
+}

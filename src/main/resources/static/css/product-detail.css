@@ -1,0 +1,318 @@
+/* ============== THEME ============== */
+:root {
+    --bg: #f6f2ed;
+    /* beige chiarissimo */
+    --panel: #ffffff;
+    --ink: #1c1b1a;
+    /* testo principale (light) */
+    --muted: #7e766f;
+    /* testo secondario */
+    --line: #e7dfd6;
+    /* divisor / bordi soft */
+    --brand: #b68662;
+    /* tuo beige scuro */
+    --black: #111111;
+    /* per CTA scura tipo screenshot */
+    --container: min(1200px, 94vw);
+}
+
+/* pagina */
+.pd-page {
+    background: var(--bg);
+}
+
+/* container pagina prodotto */
+.pd {
+    width: var(--container);
+    margin: 0 auto;
+    padding: 22px 0 40px;
+    color: var(--ink);
+    font-weight: 400;
+    /* NO bold globale */
+}
+
+/* ====== HERO ======  immagine sx | info dx */
+.pd-hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    /* media | info */
+    gap: 32px;
+    align-items: start;
+}
+
+/* immagine sinistra: grande, con riquadro elegante */
+.pd-media {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .05);
+}
+
+.pd-img {
+    width: 100%;
+    height: auto;
+    max-height: 68vh;
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    border-radius: 8px;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .05));
+}
+
+/* pannello destro: pulito, testi light */
+.pd-info {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .05);
+}
+
+/* micro-label sopra titolo (opzionale) */
+.pd-sub {
+    color: var(--muted);
+    font-size: .98rem;
+    margin: 2px 0 4px;
+}
+
+/* Titolo (Lora LIGHT) */
+.pd-title {
+    font-family: "Lora", serif;
+    font-weight: 500;
+    /* light */
+    letter-spacing: -.01em;
+    font-size: clamp(26px, 2.6vw, 36px);
+    line-height: 1.18;
+    margin: 0 0 8px;
+    color: var(--ink);
+}
+
+/* abstract/descr breve sotto titolo (se presente nel pannello dx) */
+.pd-abstract {
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0 0 14px;
+}
+
+/* prezzo light */
+.pd-price {
+    font-weight: 500;
+    font-size: clamp(18px, 2.1vw, 24px);
+    color: var(--ink);
+    margin: 2px 0 14px;
+}
+
+/* azioni */
+.pd-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-wl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    height: auto;
+    min-height: 0;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .05);
+    transition: transform .04s ease, filter .15s ease;
+}
+
+.btn-wl:hover {
+    filter: brightness(1.02);
+}
+
+.btn-wl:active {
+    transform: translateY(1px);
+}
+
+/* primaria scura (come screenshot). Se preferisci beige, cambia in var(--brand). */
+.btn-wl--accent {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+}
+
+/* noticina shipping (opzionale) */
+.pd-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: .98rem;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    margin-top: 14px;
+}
+
+/* ====== SEZIONI SOTTO ====== (descrizione, info, recensioni) */
+.pd-sections {
+    margin-top: 22px;
+    display: grid;
+    gap: 16px;
+}
+
+/* card “flat” tipo screenshot */
+.pd-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .04);
+}
+
+/* titolo sezione light */
+.pd-card h2 {
+    font-family: "Lora", serif;
+    font-weight: 500;
+    /* light */
+    color: var(--ink);
+    font-size: clamp(18px, 1.9vw, 22px);
+    margin: 0 0 10px;
+    letter-spacing: -.005em;
+}
+
+/* testo descrizione */
+.pd-desc {
+    color: #2b2723;
+    line-height: 1.6;
+}
+
+/* lista informazioni add-on “zebrata” (usa se vuoi una tabella specifiche) */
+.specs {
+    border-top: 1px solid var(--line);
+}
+
+.specs .row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.specs .row:nth-child(2n) {
+    background: #faf7f3;
+}
+
+.specs .label {
+    color: var(--muted);
+}
+
+.specs .value a {
+    color: #b66b3a;
+    text-decoration: none;
+}
+
+/* Recensioni semplici */
+.pd-reviews {
+    display: grid;
+    gap: 12px;
+}
+
+.pd-review {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #fff;
+}
+
+.pd-review .who {
+    color: var(--ink);
+}
+
+.pd-review .when {
+    color: var(--muted);
+    font-size: .92rem;
+    margin-left: 6px;
+}
+
+/* ====== PRODOTTI SIMILI ====== */
+.pd-simili {
+    margin-top: 8px;
+}
+
+.pd-simili .sec-title {
+    font-family: "Lora", serif;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -.005em;
+    font-size: clamp(20px, 2vw, 26px);
+    margin: 6px 0 10px;
+}
+
+.pd-simili .row {
+    row-gap: 18px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 991px) {
+    .pd-hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .pd-img {
+        max-height: 52vh;
+        object-position: center;
+    }
+}
+
+/* ===== Dock: porta la DESCRIZIONE sotto titolo/prezzo (colonna sinistra) ===== */
+@media (min-width: 992px) {
+
+    /* stessa larghezza della colonna immagine (sx) */
+    .pd--alt .pd-sections .pd-card:first-of-type {
+        /* larghezza e allineamento a sinistra */
+        width: calc(100% - (var(--container) - 100%));
+        max-width: calc((100% - 28px) * 0.58);
+        /* ~ colonna sx */
+        margin-right: auto;
+
+        /* sposta su nel "buco" sotto il pannello info */
+        position: relative;
+        z-index: 2;
+    }
+
+    /* desktop large: più su */
+    @media (min-width: 1200px) {
+        .pd--alt .pd-sections .pd-card:first-of-type {
+            margin-top: -32vh;
+            /* tira su nella zona vuota */
+            margin-bottom: 32vh;
+            /* restituisce lo spazio al flusso */
+        }
+    }
+
+    /* desktop medio */
+    @media (max-width: 1199px) {
+        .pd--alt .pd-sections .pd-card:first-of-type {
+            margin-top: -24vh;
+            margin-bottom: 24vh;
+        }
+    }
+}
+
+/* via il tasto "Indietro" */
+.pd-back {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+
+/* mobile: torna tutto in colonna, nessun trucco */
+@media (max-width: 991px) {
+    .pd--alt .pd-sections .pd-card:first-of-type {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

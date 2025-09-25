@@ -1,0 +1,89 @@
+/* ===== Admin Dashboard Theme ===== */
+:root {
+    --beige-50: #FBF7F2;
+    --beige-100: #F6EFE7;
+    --beige-300: #E7DACE;
+    --ink: #2B2B2B;
+
+    /* marroni (non troppo scuri) */
+    --brown-400: #B08968;
+    --brown-500: #8C6A4A;
+
+    /* quanto si vede la foto: 0 = niente velo, 1 = molto velato */
+    --veil-alpha: .62;
+    /* prova .55–.68 finché ti piace */
+}
+
+
+body.admin-dashboard {
+    background: var(--beige-50);
+    color: var(--ink);
+    font-family: "Quicksand", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* Header bianco */
+.admin-dashboard header,
+.admin-dashboard .site-header {
+    background: #fff !important;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+}
+
+/* Titoli */
+.admin-dashboard h1,
+.admin-dashboard .display-5 {
+    font-family: "Lora", Georgia, serif;
+}
+
+/* Testi e bottoni */
+.admin-dashboard .lead {
+    font-weight: 500;
+}
+
+.btn-beige {
+    background: var(--beige-100);
+    border: 1px solid var(--beige-300);
+    color: var(--ink);
+}
+
+.btn-beige:hover {
+    background: var(--beige-300);
+    border-color: var(--beige-300);
+    color: var(--ink);
+}
+
+/* Spaziatura della sezione centrale */
+.dashboard-hero {
+    max-width: 760px;
+    margin-top: 6vh;
+}
+
+/* titolo principale in Lora già caricato: tono marrone */
+.admin-dashboard h1 {
+    color: var(--brown-500);
+}
+
+/* CTA piene in beige rimangono; aggiungo variante marrone */
+.btn-brown {
+    background: var(--brown-400);
+    border: 1px solid var(--brown-500);
+    color: #fff;
+}
+
+.btn-brown:hover {
+    background: var(--brown-500);
+    border-color: var(--brown-500);
+    color: #fff;
+}
+
+/* variante outline marrone (se ti serve) */
+.btn-outline-brown {
+    background: transparent;
+    border: 1px solid var(--brown-400);
+    color: var(--brown-500);
+}
+
+.btn-outline-brown:hover {
+    background: var(--brown-400);
+    border-color: var(--brown-400);
+    color: #fff;
+}
