@@ -52,6 +52,18 @@ public class SecurityConfig {
         // SOLO UTENTI AUTENTICATI
         .requestMatchers("/reviews/**").authenticated()             // <-- recensioni protette
 
+        .requestMatchers("/api/reviews/product/*").permitAll() // GET pubblico
+        .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/reviews/product/*").authenticated()
+        .requestMatchers(org.springframework.http.HttpMethod.PUT,  "/api/reviews/*").authenticated()
+        .requestMatchers(org.springframework.http.HttpMethod.DELETE,"/api/reviews/*").authenticated()
+
+        // pagine
+      .requestMatchers("/reviews/new", "/reviews/new/*", "/profile/reviews").authenticated()
+        // form POST 
+      .requestMatchers("/reviews/product/*/create").authenticated()
+      .requestMatchers("/reviews/*/update", "/reviews/*/delete").authenticated()
+
+
         // TUTTO IL RESTO: login richiesto
         .anyRequest().authenticated()
       )
